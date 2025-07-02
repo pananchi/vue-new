@@ -1,6 +1,7 @@
 <script setup>
 import FirstComponent from "./components/FirstComponent.vue";
 import SecondComponent from "./components/SecondComponent.vue";
+import ThirdComponent from "./components/ThirdComponent.vue";
 
 
 </script>
@@ -9,6 +10,7 @@ import SecondComponent from "./components/SecondComponent.vue";
   <h2>Hello,Vue!!</h2>
   <FirstComponent />
   <SecondComponent />
+  <ThirdComponent />
 
 </template>
 
