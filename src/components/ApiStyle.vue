@@ -19,8 +19,6 @@ import { ref } from 'vue';
 
 <script setup>
 import { ref } from 'vue';
-
-
 const message = ref("Hello, Vue!!"); 
 </script>
 
