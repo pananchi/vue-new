@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 
 const userName = ref('guest'); 
+const age = ref(20); 
 
 const submitHandler = () => {
   if (userName.value.trim().length === 0) {
@@ -26,7 +27,13 @@ const submitHandler = () => {
 
     <form action="/do" @submit.prevent="submitHandler">
       <label for="name">姓名：</label>
-      <input type="text" name="name" v-model="userName" />
+      <input type="text" name="name" v-model.lazy.trim="userName" />
+      <p>目前姓名：{{ userName }}</p>
+      <label for="age">年紀：</label>
+      <input v-model.number="age" name="age" />
+      
+      <p>年紀：{{ age }} {{ typeof age }}</p>
+
       <button type="submit">送出</button>
     </form>
   </div>
