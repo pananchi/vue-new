@@ -8,7 +8,7 @@ console.log(new Date().getDate());
   
   const title = ref("Vue.js");
   const ispan = ref("https://www.ispan.com.tw/_next/image/?url=%2Fimages%2FiSpan_Logo_slogan.png&w=1080&q=75");
-  const isDisabled = ref(true);
+  const isDisabled = ref(false);
   const user = ref({
     firstName: "John",
     lasrName: "Wu"
@@ -44,8 +44,8 @@ console.log(new Date().getDate());
     <img :src="ispan" v-bind:title="title">
     <a href="" v-bind:title="title">ispan</a>
     <hr>
-    <label for=""><input type="checkbox" v-model="isDisabled">同意條款</label>
-    <button disabled="isDisabled">click</button>
+    <input type="checkbox" v-model="isDisabled">同意條款
+    <button :disabled="!isDisabled">click</button>
   </div>
 
 </template>
