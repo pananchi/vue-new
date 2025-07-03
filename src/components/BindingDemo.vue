@@ -10,9 +10,9 @@ import { ref } from 'vue';
   <div>
     <!-- // && || ? : -->
     <!-- 如果userName有姓名就顯示姓名，沒有姓名就顯示Guest -->
-    <p> {{ isAbmin ? userName:"Guest" }}</p>
+    <p> {{ userName || '訪客' }}</p>
     <!-- 如果isAdmin為true就顯示管理者登入，如果為false就不顯示任何內容 -->
-    <p></p>
+    <p> {{ isAbmin ? '管理員登入':'' }}</p>
   </div>
 </template>
 
