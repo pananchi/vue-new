@@ -2,6 +2,7 @@
 import ApiStyle from "./components/ApiStyle.vue";
 import BindingComponent from "./components/BindingComponent.vue";
 import BindingDemo from "./components/BindingDemo.vue";
+import BMIComponent from "./components/BMIComponent.vue";
 import ComputedDemo from "./components/ComputedDemo.vue";
 import CountComponent from "./components/CountComponent.vue";
 import EventBinding from "./components/EventBinding.vue";
@@ -14,6 +15,8 @@ import ThirdComponent from "./components/ThirdComponent.vue";
 
 <template>
   <h2>Hello,Vue!!</h2>
+  <BMIComponent />
+  <ComputedDemo />
   <EventBinding />
   <FirstComponent />
   <SecondComponent />
@@ -22,7 +25,6 @@ import ThirdComponent from "./components/ThirdComponent.vue";
   <CountComponent />
   <BindingComponent />
   <BindingDemo />
-  <ComputedDemo />
 
 </template>
 
