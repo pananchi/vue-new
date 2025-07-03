@@ -52,7 +52,6 @@ const changeHandler = event => {
       <label><input type="radio" v-model="gender" value="female" />女</label>
       <p>性別是：{{ gender }}</p>
       
-
       <label>學歷：
         <select v-model="educationValue" @change="changeHandler">
           <option value="" disabled>請選擇</option>
@@ -71,6 +70,7 @@ const changeHandler = event => {
       <label><input type="checkbox" value="Vue3" v-model="skills" /> Vue.js</label>  
       <p>選擇的專長：{{ skills }}</p>
       <hr>
+
       <button type="submit">送出</button>
     </form>
   </div>
