@@ -1,5 +1,5 @@
 <script setup>
-import { ref , watch } from 'vue';
+import { ref , watch ,watchEffect } from 'vue';
   
 const formatTime = (today) => {
   const hours = today.getHours().toString().padStart(2, '0');
@@ -24,6 +24,10 @@ watch(clock,(newTime, oldTime) => {
   console.log(`Clock changed from ${oldTime} to ${newTime}`);
 },{immediate: true}); //{once: true}
 
+watchEffect(() => {
+  console.log(`Current time is: ${clock.value}`);
+});
+
 const changeTime = () => {
   const today = new Date();
   clock.value = formatTime(today);
@@ -33,6 +37,7 @@ const changeTime = () => {
 //   const today = new Date();
 //   clock.value = formatTime(today);
 // }, 1000);
+
 </script>
 
 <template>
