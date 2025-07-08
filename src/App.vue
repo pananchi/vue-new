@@ -19,9 +19,19 @@ import HomeView from "./views/HomeView.vue";
 
 <template>
   <h2>Hello,Vue!!</h2>
-  <HomeView />
+  <RouterLink to="/">首頁</RouterLink> |
+  <RouterLink to="/about">關於我們</RouterLink> |
+  <RouterLink to="/zxy">聯絡我們</RouterLink> |
+  <hr>
+  <RouterLink :to="{ name:'home' }">首頁</RouterLink> |
+  <RouterLink :to="{ name:'about' }">關於我們</RouterLink> |
+  <RouterLink :to="{ name:'contact' }">聯絡我們</RouterLink> |
+  <hr>
+  <RouterView />
+
+  <!-- <HomeView />
   <AboutView />
-  <ContactView />
+  <ContactView /> -->
 
   <!-- <ClockComponents />
   <BMIComponent />
