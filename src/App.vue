@@ -23,10 +23,11 @@ import HomeView from "./views/HomeView.vue";
   <RouterLink to="/about">關於我們</RouterLink> |
   <RouterLink to="/zxy">聯絡我們</RouterLink> |
   <hr>
-  <RouterLink :to="{ name:'home' }">首頁</RouterLink> |
-  <RouterLink :to="{ name:'about' }">關於我們</RouterLink> |
-  <RouterLink :to="{ name:'contact' }">聯絡我們</RouterLink> |
-  <RouterLink :to="{ name:'member',params:{ id: '10'} }">會員中心</RouterLink> |
+  <RouterLink :to="{ name:'home' }" activeClass="active">首頁</RouterLink> |
+  <RouterLink :to="{ name:'about' }" activeClass="active">關於我們</RouterLink> |
+  <RouterLink :to="{ name:'contact' }" activeClass="active">聯絡我們</RouterLink> |
+  <RouterLink :to="{ name:'member',params:{ id: '10'} }" activeClass="active">會員中心</RouterLink> |
+  <RouterLink :to="{ name:'todos' }" activeClass="active">待辦事項</RouterLink> |
   <hr>
   <RouterView />
 
@@ -49,4 +50,10 @@ import HomeView from "./views/HomeView.vue";
 </template>
 
 <style scoped>
+.active{
+  color: #FFF;
+  background: blue;
+  padding: 1px;
+  text-decoration: none;
+}
 </style>

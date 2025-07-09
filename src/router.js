@@ -6,15 +6,19 @@ import ContactView from "./views/ContactView.vue";
 import Team1View from "./views/Team1View.vue";
 import Team2View from "./views/Team2View.vue";
 import MemberCenter from "./views/MemberCenter.vue";
+import TodosView_Full from "./views/TodosView_Full.vue";
+import NotFound from "./views/NotFound.vue";
 
 //URL <> component
 // 路由的對應表
 const routes = [
+  { path: "/", redirect: "/home" }, //重定向到 /home
   // http://localhost:5173/
-  { path: "/", component: HomeView, name: "home" }, //首頁
+  { path: "/home", component: HomeView, name: "home" }, //首頁
   // http://localhost:5173/about
   {
     path: "/about", component: AboutView, name: "about",
+    redirect: "/about/team1", //重定向到 /about/team1
     children: [
       // http://localhost:5173/about/team1 > Team1View
       { path: "team1", component: Team1View, name: "team1" },
@@ -23,9 +27,17 @@ const routes = [
     ]
   }, //關於
   // http://localhost:5173/contact
-  { path: "/contact", component: ContactView, name: "contact" },
+  {
+    path: "/contact", component: ContactView, name: "contact",
+    alias: "/contact_us", //別名
+    sensitive: false, //大小寫敏感
+    strict: false //嚴格模式
+  },
   // http://localhost:5173/member > MemberCenter
-  { path: "/member/:id", component: MemberCenter, name: "member", props: true }
+  { path: "/member/:id", component: MemberCenter, name: "member", props: true },
+  // http://localhost:5173/todos > TodosView_Full
+  { path: "/todos", component: TodosView_Full, name: "todos" },
+  { path: "/:pathMatch(.*)*", component: NotFound, name: "notfound" } //404重定向到 
 ]
 
 const router = createRouter({
