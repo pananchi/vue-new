@@ -1,4 +1,8 @@
 <script setup>
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js'
+import 'bootstrap-icons/font/bootstrap-icons.css'
+
 import ApiStyle from "./components/ApiStyle.vue";
 import BindingComponent from "./components/BindingComponent.vue";
 import BindingDemo from "./components/BindingDemo.vue";
@@ -18,18 +22,20 @@ import HomeView from "./views/HomeView.vue";
 </script>
 
 <template>
-  <h2>Hello,Vue!!</h2>
-  <RouterLink to="/">首頁</RouterLink> |
-  <RouterLink to="/about">關於我們</RouterLink> |
-  <RouterLink to="/zxy">聯絡我們</RouterLink> |
-  <hr>
-  <RouterLink :to="{ name:'home' }" activeClass="active">首頁</RouterLink> |
-  <RouterLink :to="{ name:'about' }" activeClass="active">關於我們</RouterLink> |
-  <RouterLink :to="{ name:'contact' }" activeClass="active">聯絡我們</RouterLink> |
-  <RouterLink :to="{ name:'member',params:{ id: '10'} }" activeClass="active">會員中心</RouterLink> |
-  <RouterLink :to="{ name:'todos' }" activeClass="active">待辦事項</RouterLink> |
-  <hr>
-  <RouterView />
+  <div clsaa="container">
+    <h2>Hello,Vue!!</h2>
+    <RouterLink to="/">首頁</RouterLink> |
+    <RouterLink to="/about">關於我們</RouterLink> |
+    <RouterLink to="/zxy">聯絡我們</RouterLink> |
+    <hr>
+    <RouterLink :to="{ name:'home' }" activeClass="active">首頁</RouterLink> |
+    <RouterLink :to="{ name:'about' }" activeClass="active">關於我們</RouterLink> |
+    <RouterLink :to="{ name:'contact' }" activeClass="active">聯絡我們</RouterLink> |
+    <RouterLink :to="{ name:'member',params:{ id: '10'} }" activeClass="active">會員中心</RouterLink> |
+    <RouterLink :to="{ name:'todos' }" activeClass="active">待辦事項</RouterLink> |
+    <hr>
+    <RouterView />
+  </div>
 
   <!-- <HomeView />
   <AboutView />
