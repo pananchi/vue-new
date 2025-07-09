@@ -5,6 +5,7 @@ import AboutView from "./views/AboutView.vue";
 import ContactView from "./views/ContactView.vue";
 import Team1View from "./views/Team1View.vue";
 import Team2View from "./views/Team2View.vue";
+import MemberCenter from "./views/MemberCenter.vue";
 
 //URL <> component
 // 路由的對應表
@@ -22,8 +23,9 @@ const routes = [
     ]
   }, //關於
   // http://localhost:5173/contact
-  { path: "/contact", component: ContactView, name: "contact" } //聯絡
-
+  { path: "/contact", component: ContactView, name: "contact" },
+  // http://localhost:5173/member > MemberCenter
+  { path: "/member/:id", component: MemberCenter, name: "member", props: true }
 ]
 
 const router = createRouter({
