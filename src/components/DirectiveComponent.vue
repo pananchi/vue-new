@@ -16,6 +16,12 @@ const regions = ref([
 
 const selectRegion = ref("");
 const user = ref({ "name": "Jack", "age": 30, "emeail": "jack@gmail.com" })
+const bgColor = ref("yellow");
+const isS1 = ref(false);
+const isS2 = ref(false);
+const isUnder = ref(false);
+const isItalic = ref(false);
+const fontSize = ref(16);
 </script>
 
 <template>
@@ -38,7 +44,6 @@ const user = ref({ "name": "Jack", "age": 30, "emeail": "jack@gmail.com" })
       </option>
     </select>
     <span>{{ selectRegion }} {{ selectRegion.name }}{{ selectRegion.code }}</span>
-
     <ul>
       <li v-for="(value, key) in user">{{ key }} {{ value }}</li>
     </ul>
@@ -48,8 +53,36 @@ const user = ref({ "name": "Jack", "age": 30, "emeail": "jack@gmail.com" })
         <li class="page-item" v-for="i in 5"><a class="page-link" href="#">{{ i }}</a></li>
       </ul>
     </nav>
+    <!-- style -->
+    <input type="color" v-model="bgColor" />
+    <div style="width: 200px;height: 200px;border: 1px solid green" :style="{ backgroundColor: bgColor }"></div>
+    <!-- class -->
+    <input type="checkbox" v-model="isS2"> 背景色
+    <input type="checkbox" v-model="isS1"> 字的顏色
+    <input type="checkbox" v-model="isUnder"> 下底線
+    <input type="checkbox" v-model="isItalic"> 斜體字
+    <button @click="fontSize += 2">A+</button>
+    <button @click="fontSize -= 2">A-</button>
+    <h3 :class="{ s1: isS1, s2: isS2, underline: isUnder, itakic: isItalic }" :style="{ fontSize: `${fontSize}px` }">
+      Class 樣式處理</h3>
 
   </div>
 </template>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+.s1 {
+  color: green;
+}
+
+.s2 {
+  background: lightblue;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.itakic {
+  font-style: italic;
+}
+</style>
