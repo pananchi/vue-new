@@ -2,7 +2,8 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import HeaderComponents from './views/HeaderComponents.vue';
+import HeaderComponents from './components/HeaderComponents.vue';
+import FooterComponent from './components/FooterComponent.vue';
 
 import ApiStyle from "./components/ApiStyle.vue";
 import BindingComponent from "./components/BindingComponent.vue";
@@ -20,11 +21,14 @@ import ContactView from "./views/ContactView.vue";
 import HomeView from "./views/HomeView.vue";
 
 
+
 </script>
 
 <template>
   <HeaderComponents />
   <div class="container mt-3">
+
+
     <RouterView />
 
 
@@ -59,6 +63,7 @@ import HomeView from "./views/HomeView.vue";
     <BindingComponent />
     <BindingDemo /> -->
   </div>
+  <FooterComponent />
 </template>
 
 <style scoped>
