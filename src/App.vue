@@ -20,6 +20,7 @@ import HomeView from "./views/HomeView.vue";
 import HeaderComponents from './components/HeaderComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import JumbotronCompomemt from './components/jumbotronCompomemt.vue';
+import DirectiveComponent from './components/DirectiveComponent.vue';
 
 
 
@@ -29,9 +30,9 @@ import JumbotronCompomemt from './components/jumbotronCompomemt.vue';
   <HeaderComponents />
   <JumbotronCompomemt />
   <div class="container mt-3">
-
-
     <RouterView />
+    <hr>
+    <DirectiveComponent />
 
 
 
