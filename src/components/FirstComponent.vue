@@ -1,11 +1,12 @@
 <template>
   <h2 id="myH">第一個 Component</h2>
+  <input type="text">
 </template>
 
 <style lang="css" scoped>
-  h2{
-    color: orange;
-  }
+h2 {
+  color: orange;
+}
 </style>
 
 <script setup>
