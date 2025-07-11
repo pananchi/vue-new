@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from 'vue';
 
-const userName = ref('guest'); 
-const age = ref(20); 
+const userName = ref('guest');
+const age = ref(20);
 const educationValue = ref('');
 const educationText = ref('');
 const skills = ref([]);
@@ -13,7 +13,7 @@ const submitHandler = () => {
     alert(`請先輸入 ${userName.value}`);
     return;
   }
- alert(`資料送出 ${userName.value}`);
+  alert(`資料送出 ${userName.value}`);
 };
 
 // const submitHandler = event => {
@@ -34,6 +34,7 @@ const changeHandler = event => {
   // console.log(event.target.options[idx].text);
   educationText.value = event.target.options[idx].text;
 };
+
 </script>
 
 <template>
@@ -51,7 +52,7 @@ const changeHandler = event => {
       <label><input type="radio" v-model="gender" value="male" />男</label>
       <label><input type="radio" v-model="gender" value="female" />女</label>
       <p>性別是：{{ gender }}</p>
-      
+
       <label>學歷：
         <select v-model="educationValue" @change="changeHandler">
           <option value="" disabled>請選擇</option>
@@ -64,18 +65,17 @@ const changeHandler = event => {
       <p>選擇的學歷： {{ educationValue }} {{ educationText }}</p>
 
       <label>專長：</label>
-      <label><input type="checkbox" value="C#" v-model="skills"/> C#</label>  
-      <label><input type="checkbox" value="SQL" v-model="skills" /> SQL</label>  
-      <label><input type="checkbox" value="JS" v-model="skills" /> JavaScript</label>  
-      <label><input type="checkbox" value="Vue3" v-model="skills" /> Vue.js</label>  
+      <label><input type="checkbox" value="C#" v-model="skills" /> C#</label>
+      <label><input type="checkbox" value="SQL" v-model="skills" /> SQL</label>
+      <label><input type="checkbox" value="JS" v-model="skills" /> JavaScript</label>
+      <label><input type="checkbox" value="Vue3" v-model="skills" /> Vue.js</label>
       <p>選擇的專長：{{ skills }}</p>
       <hr>
 
       <button type="submit">送出</button>
+
     </form>
   </div>
 </template>
 
-<style lang="css" scoped>
-
-</style>
+<style lang="css" scoped></style>

@@ -22,6 +22,15 @@ const isS2 = ref(false);
 const isUnder = ref(false);
 const isItalic = ref(false);
 const fontSize = ref(16);
+const keyword = ref("");
+const enterHandler = event => {
+  console.log(keyword.value);
+};
+const clearHandler = () => {
+  keyword.value = "";
+  console.log("清除輸入框");
+};
+
 </script>
 
 <template>
@@ -65,6 +74,8 @@ const fontSize = ref(16);
     <button @click="fontSize -= 2">A-</button>
     <h3 :class="{ s1: isS1, s2: isS2, underline: isUnder, itakic: isItalic }" :style="{ fontSize: `${fontSize}px` }">
       Class 樣式處理</h3>
+
+    <input type="text" v-model="keyword" @keyup.enter="enterHandler" @keyup.delete="clearHandler" />
 
   </div>
 </template>
