@@ -23,6 +23,7 @@ import FooterComponent from './components/FooterComponent.vue';
 import JumbotronCompomemt from './components/jumbotronCompomemt.vue';
 import DirectiveComponent from './components/DirectiveComponent.vue';
 import ChildComponent from './components/ChildComponent.vue';
+import FancyButton from './components/FancyButton.vue';
 
 
 const message = ref("這個訊息來自 App.vue")
@@ -42,6 +43,9 @@ const likesEventHandler = data => {
   <div class="container mt-3">
     <RouterView />
     <hr>
+    <!-- <FancyButton>送出 <i class="bi bi-arrow-up"></i></FancyButton>
+    <FancyButton> 登入 <i class="bi bi-android"></i></FancyButton>
+    <FancyButton> 加入購物車 <i class="bi bi-bag-plus"></i></FancyButton> -->
     <!-- <DirectiveComponent /> -->
     <!-- :message="message" -->
     <!-- message、likes 是自訂屬性 -->
