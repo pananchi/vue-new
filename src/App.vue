@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
 import 'bootstrap-icons/font/bootstrap-icons.css'
@@ -21,9 +22,18 @@ import HeaderComponents from './components/HeaderComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import JumbotronCompomemt from './components/jumbotronCompomemt.vue';
 import DirectiveComponent from './components/DirectiveComponent.vue';
+import ChildComponent from './components/ChildComponent.vue';
 
 
-
+const message = ref("這個訊息來自 App.vue")
+const count = ref(50);
+const myEventHandler = data => {
+  // data 使用接收子組件傳過來的資料
+  console.log(data);
+}
+const likesEventHandler = data => {
+  count.value = data;
+}
 </script>
 
 <template>
@@ -33,7 +43,12 @@ import DirectiveComponent from './components/DirectiveComponent.vue';
     <RouterView />
     <hr>
     <!-- <DirectiveComponent /> -->
-
+    <!-- :message="message" -->
+    <!-- message、likes 是自訂屬性 -->
+    <!-- 用來將資料傳遞給子組件 -->
+    <ChildComponent :message :likes="count" @myEvent="myEventHandler" @likesEvent="likesEventHandler" />
+    <!-- myEvent 自訂的事件、myEventHandler 是myEvent事件觸發後會執行的 function -->
+    <!-- myEvent 事件會在子組件透過 emit("myEvent") 來觸發 -->
 
 
 

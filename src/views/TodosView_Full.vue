@@ -83,7 +83,7 @@ const remaining = computed(() => {
 
 <style lang="css" scoped>
 .completed {
-  color: #949494;
+  color: #949494 !important;
   text-decoration: line-through;
 }
 </style>
