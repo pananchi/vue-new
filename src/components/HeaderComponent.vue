@@ -27,6 +27,9 @@
         <li>
           <RouterLink :to="{ name: 'todos' }" activeClass="active" class="nav-link px-2">待辦事項</RouterLink>
         </li>
+        <li>
+          <RouterLink :to="{ name: 'tabs' }" activeClass="active" class="nav-link px-2">TabsView</RouterLink>
+        </li>
       </ul>
       <div class="col-md-3 text-end"> <button type="button" class="btn btn-outline-primary me-2">Login</button> <button
           type="button" class="btn btn-primary">Sign-up</button> </div>

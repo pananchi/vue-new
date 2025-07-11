@@ -32,7 +32,7 @@ import DirectiveComponent from './components/DirectiveComponent.vue';
   <div class="container mt-3">
     <RouterView />
     <hr>
-    <DirectiveComponent />
+    <!-- <DirectiveComponent /> -->
 
 
 
