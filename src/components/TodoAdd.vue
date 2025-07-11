@@ -2,9 +2,11 @@
 import { ref } from 'vue'
 const newTodo = ref('')
 
-//待做事項新增
+const emit = defineEmits(['addEvent'])
 const enterHandler = () => {
-  console.log(newTodo.value);
+  //透過 emit() 觸發 myEvent 事件
+  emit('addEvent', newTodo.value);
+  newTodo.value = ''
 }
 
 //清除輸入的資料

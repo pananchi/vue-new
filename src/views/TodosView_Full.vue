@@ -13,6 +13,12 @@ const todos = ref(
 //取得唯一值
 const uniqueId = () => Date.now().toString(36) + Math.random().toString(36).substring(2, 9);
 
+//待辦事項新增
+const addEventHandler = todo => {
+  todos.value.push({ "id": uniqueId(), "title": todo, "completed": false })
+}
+
+
 //刪除 todo
 const removeTodo = todo => {
   //找到 todo 在 todos 中的索引值
@@ -21,8 +27,6 @@ const removeTodo = todo => {
   //刪除 從idx這個位置刪除1筆資料
   todos.value.splice(idx, 1)
 }
-
-
 
 //移除所有完成的工作
 const removeCompleted = () => {
@@ -48,7 +52,7 @@ const remaining = computed(() => {
     <div class="col-3"> </div>
     <div class="col-6">
       <h3>Todos Page</h3>
-      <TodoAdd />
+      <TodoAdd @addEvent="addEventHandler" />
       <ul class="list-group mt-3">
         <li v-for="todo in todos" :key="todo.id" class="list-group-item">
           <div class="d-flex justify-content-between">
