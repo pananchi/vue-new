@@ -2,6 +2,8 @@
 import { computed, ref, watchEffect } from 'vue';
 import TodoAdd from '../components/TodoAdd.vue'
 import TodoFooter from '@/components/TodoFooter.vue';
+import { useTodoStore } from '@/stores/todo';
+const storeTodo = useTodoStore();
 
 
 // const todos = ref(
@@ -58,6 +60,8 @@ const remaining = computed(() => {
 //watchEffect
 watchEffect(() => {
   localStorage.setItem('todos', JSON.stringify(todos.value));
+  const activeTodos = todos.value.filter(todo => !todo.completed)
+  storeTodo.unfinishedQtyChange(activeTodos.length)
 })
 
 
@@ -82,7 +86,7 @@ watchEffect(() => {
         </li>
 
       </ul>
-      <TodoFooter :total="remaining" @removeEvent="removeCompleted" />
+      <TodoFooter @removeEvent="removeCompleted" />
     </div>
     <div class="col-3"></div>
 
