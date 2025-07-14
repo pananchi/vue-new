@@ -1,16 +1,22 @@
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, ref, watchEffect } from 'vue';
 import TodoAdd from '../components/TodoAdd.vue'
 import TodoFooter from '@/components/TodoFooter.vue';
 
 
-const todos = ref(
-  [
-    { "id": "m21uwqfprb0ncx4", "title": "買菜", "completed": false },
-    { "id": "m21w6x73hw2tvrc", "title": "看電視", "completed": true },
-    { "id": "m21w6x73hw2abcd", "title": "睡覺", "completed": true },
-  ]
-)
+// const todos = ref(
+//   [
+//     { "id": "m21uwqfprb0ncx4", "title": "買菜", "completed": false },
+//     { "id": "m21w6x73hw2tvrc", "title": "看電視", "completed": true },
+//     { "id": "m21w6x73hw2abcd", "title": "睡覺", "completed": true },
+//   ]
+// )
+// 把資料寫進localStorage
+// localStorage.setItem('todos', JSON.stringify(todos.value));
+
+// 從localStorage讀取待辦事項
+const todos = ref(JSON.parse(localStorage.getItem('todos')));
+
 //取得唯一值
 const uniqueId = () => Date.now().toString(36) + Math.random().toString(36).substring(2, 9);
 
@@ -18,7 +24,6 @@ const uniqueId = () => Date.now().toString(36) + Math.random().toString(36).subs
 const addEventHandler = todo => {
   todos.value.push({ "id": uniqueId(), "title": todo, "completed": false })
 }
-
 
 //刪除 todo
 const removeTodo = todo => {
@@ -44,6 +49,16 @@ const remaining = computed(() => {
   return activeTodos.length
 })
 
+//響應是資料改變了就把資料寫進localStorage
+//computed => 只做計算不要有 side effect
+//watch
+// watch('todos', (newTodos, oldTodos){
+// }, { deep: true,immediate:true })
+
+//watchEffect
+watchEffect(() => {
+  localStorage.setItem('todos', JSON.stringify(todos.value));
+})
 
 
 </script>
