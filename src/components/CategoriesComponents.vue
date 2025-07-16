@@ -1,13 +1,39 @@
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref, watchEffect } from 'vue';
 
 
 const categories = ref([]);
 
 const apiUrl = 'https://localhost:7282/api/Categories';
-fetch(apiUrl)
-  .then(response => response.json())
-  .then(datas => categories.value = datas);
+// fetch(apiUrl)
+//   .then(response => response.json())
+//   .then(datas => categories.value = datas);
+
+//Component 載入時不會執行
+// watch(categories,()={})
+
+//監看Component中的響應式資料的異動
+//Component載入時就會被執行
+// watchEffect(async () => {
+//   const response = await fetch(apiUrl);
+//   const datas = await response.json();
+//   categories.value = datas;
+// })
+
+// //Component 掛載到 DOM 時
+// onMounted(async () => {
+//   // 用DOM語法控制Component
+//   const response = await fetch(apiUrl);
+//   const datas = await response.json();
+//   categories.value = datas;
+// })
+
+//IIFE
+(async () => {
+  const response = await fetch(apiUrl);
+  const datas = await response.json();
+  categories.value = datas;
+})();
 
 </script>
 
