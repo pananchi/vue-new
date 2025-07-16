@@ -4,7 +4,12 @@ import { onMounted, ref, watchEffect } from 'vue';
 
 const categories = ref([]);
 
-const apiUrl = 'https://localhost:7282/api/Categories';
+//從 .env 環境變數的值
+const baseUel = import.meta.env.VITE_API_BASEURL;
+const apiUrl = `${baseUel}/Categories`;
+
+console.log(apiUrl);
+
 // fetch(apiUrl)
 //   .then(response => response.json())
 //   .then(datas => categories.value = datas);

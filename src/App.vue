@@ -29,6 +29,7 @@ import CategoriesComponents from './components/CategoriesComponents.vue';
 
 const message = ref("這個訊息來自 App.vue")
 const count = ref(50);
+const mode = ref(import.meta.env.VITE_MODE);
 const myEventHandler = data => {
   // data 使用接收子組件傳過來的資料
   console.log(data);
@@ -44,9 +45,9 @@ const likesEventHandler = data => {
   <div class="container mt-3">
     <RouterView />
     <hr>
+    <h2>模式:{{ mode }}</h2>
     <CategoriesComponents />
 
-    <hr>
 
     <!-- <FancyButton>送出 <i class="bi bi-arrow-up"></i></FancyButton>
     <FancyButton> 登入 <i class="bi bi-android"></i></FancyButton>
