@@ -1,5 +1,6 @@
 <script setup>
 import MemberAdd from '@/components/MemberAdd.vue';
+import MemberEdit from '@/components/MemberEdit.vue';
 import { ref } from 'vue';
 
 const members = ref([]);
@@ -79,6 +80,7 @@ loadMembers();
       </div>
     </div>
   </div>
+  <MemberEdit />
 </template>
 
 <style lang="css" scoped></style>

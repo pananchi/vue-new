@@ -15,8 +15,8 @@ const submitHamdler = () => {
         <input type="text" class="form-control" id="InputName" name="name">
       </div>
       <div class="mb-3">
-        <label for="InputEmail1" class="form-label">電子郵件</label>
-        <input type="email" class="form-control" id="InputEmail1" name="email">
+        <label for="InputEmail" class="form-label">電子郵件</label>
+        <input type="email" class="form-control" id="InputEmail" name="email">
       </div>
       <div class="mb-3">
         <label for="InputAge" class="form-label">年齡</label>
