@@ -9,6 +9,7 @@ import MemberCenter from "./views/MemberCenter.vue";
 import TodosView_Full from "./views/TodosView_Full.vue";
 import NotFound from "./views/NotFound.vue";
 import TabsView from "./views/TabsView.vue";
+import MemberView from "./views/MemberView.vue";
 
 //URL <> component
 // 路由的對應表
@@ -40,7 +41,8 @@ const routes = [
   { path: "/todos", component: TodosView_Full, name: "todos" },
   // http://localhost:5173/todos 
   { path: "/tabs", component: TabsView, name: "tabs" },
-
+  // http://localhost:5173/members 
+  { path: "/members", component: MemberView, name: "members" },
 
   { path: "/:pathMatch(.*)*", component: NotFound, name: "notfound" } //404重定向到 
 ]

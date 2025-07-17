@@ -45,8 +45,10 @@ const likesEventHandler = data => {
   <div class="container mt-3">
     <RouterView />
     <hr>
-    <h2>模式:{{ mode }}</h2>
-    <CategoriesComponents />
+
+
+    <!-- <h2>模式:{{ mode }}</h2> -->
+    <!-- <CategoriesComponents /> -->
 
 
     <!-- <FancyButton>送出 <i class="bi bi-arrow-up"></i></FancyButton>

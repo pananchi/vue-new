@@ -32,6 +32,9 @@ const storeTodo = useTodoStore()
         <li>
           <RouterLink :to="{ name: 'tabs' }" activeClass="active" class="nav-link px-2">TabsView</RouterLink>
         </li>
+        <li>
+          <RouterLink :to="{ name: 'members' }" activeClass="active" class="nav-link px-2">會員管理</RouterLink>
+        </li>
       </ul>
       <div class="col-md-3 text-end"> <button type="button" class="btn btn-outline-primary me-2">Login</button> <button
           type="button" class="btn btn-primary">Sign-up</button> </div>
