@@ -8,7 +8,7 @@ const apiUrl = `${import.meta.env.VITE_API_BASEURL}/Members`;
 const staticUrl = `${import.meta.env.VITE_STATICURL}/images`;
 
 //讀取所有會員資料
-const loadMember = async () => {
+const loadMembers = async () => {
   const response = await fetch(apiUrl); //GET
   const datas = await response.json();
   members.value = datas;
@@ -25,11 +25,23 @@ const deleteHandler = async (id) => {
 
   if (response.ok) {
     alert('會員刪除成功!!');
-    loadMember();
+    loadMembers();
   }
 }
 
-loadMember();
+//新增會員資料
+const addMemberHandler = async (fd) => {
+  const response = await fetch(apiUrl, {
+    method: 'POST',
+    body: fd
+  })
+  if (response.ok) {
+    alert('新增成功');
+    loadMembers();
+  }
+}
+
+loadMembers();
 
 </script>
 
@@ -63,7 +75,7 @@ loadMember();
         </table>
       </div>
       <div class="col-3">
-        <MemberAdd />
+        <MemberAdd @addMember="addMemberHandler" />
       </div>
     </div>
   </div>
