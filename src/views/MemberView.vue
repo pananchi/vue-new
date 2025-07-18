@@ -3,7 +3,9 @@ import MemberAdd from '@/components/MemberAdd.vue';
 import MemberEdit from '@/components/MemberEdit.vue';
 import { ref } from 'vue';
 
+
 const members = ref([]);
+const editMember = ref({});
 
 const apiUrl = `${import.meta.env.VITE_API_BASEURL}/Members`;
 const staticUrl = `${import.meta.env.VITE_STATICURL}/images`;
@@ -37,7 +39,27 @@ const addMemberHandler = async (fd) => {
     body: fd
   })
   if (response.ok) {
-    alert('新增成功');
+    alert('會員新增成功');
+    loadMembers();
+  }
+}
+
+//編輯會員資料
+const editHandler = member => {
+  editMember.value = member;
+}
+
+//修改會員資料
+//PUT https://localhost:7282/api/Members/{Id}
+const updateMemberHandler = async (member) => {
+  const updateApi = `${apiUrl}/${member.memberId}`;
+  const response = await fetch(updateApi, {
+    method: 'PUT',
+    body: JSON.stringify(member),
+    headers: { 'Content-Type': 'application/json' }
+  })
+  if (response.ok) {
+    alert('會員修改成功');
     loadMembers();
   }
 }
@@ -68,8 +90,12 @@ loadMembers();
               <td>{{ member.email }}</td>
               <td>{{ member.age }}</td>
               <td>
+                <button @click="editHandler(member)" data-bs-toggle="modal" data-bs-target="#editModel"
+                  class="btn btn-secondary mx-3"><i class="bi bi-usb-plug"></i></button>
+
                 <button @click="deleteHandler(member.memberId)" class="btn btn-danger"><i
                     class="bi bi-trash"></i></button>
+
               </td>
             </tr>
           </tbody>
@@ -80,7 +106,8 @@ loadMembers();
       </div>
     </div>
   </div>
-  <MemberEdit />
+
+  <MemberEdit :member="editMember" @updateMember="updateMemberHandler" />
 </template>
 
 <style lang="css" scoped></style>
